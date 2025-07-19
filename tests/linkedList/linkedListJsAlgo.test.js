@@ -131,4 +131,23 @@ describe("LinkedList Basic Methods", () => {
     expect(removed4).toBeNull();
     expect(ll.getSize()).toBe(1);
   });
+
+  test("removeValue removes first occurrence of value", () => {
+  const ll = new LinkedList();
+  ll.append(10);
+  ll.append(20);
+  ll.append(30);
+
+  expect(ll.removeValue(20)).toBe(20);
+  expect(ll.getSize()).toBe(2);
+  expect(ll.head.next.value).toBe(30);
+
+  expect(ll.removeValue(10)).toBe(10);
+  expect(ll.getSize()).toBe(1);
+  expect(ll.head.value).toBe(30);
+
+  expect(ll.removeValue(100)).toBeNull();
+  expect(ll.getSize()).toBe(1);
+});
+
 });

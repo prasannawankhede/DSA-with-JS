@@ -66,7 +66,7 @@ class LinkedList {
     if (index < 0 || index >= this.size) {
       return null;
     }
-    let removedNode
+    let removedNode;
     if (index === 0) {
       removedNode = this.head;
       this.head = this.head.next;
@@ -80,6 +80,32 @@ class LinkedList {
     }
     this.size--;
     return removedNode.value;
+  }
+
+  removeValue(value) {
+    if (this.isEmpty()) {
+      return null;
+    }
+
+    if (this.head.value === value) {
+      this.head = this.head.next;
+      this.size--;
+      return value;
+    }
+
+    let prev = this.head;
+    while (prev.next && prev.next.value !== value) {
+      prev = prev.next;
+    }
+
+    if (prev.next) {
+      let removedValue = prev.next;
+      prev.next = removedValue.next;
+      this.size--;
+      return value;
+    }
+
+    return null;
   }
 
   print() {
