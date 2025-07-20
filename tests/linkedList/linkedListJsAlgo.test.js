@@ -133,21 +133,44 @@ describe("LinkedList Basic Methods", () => {
   });
 
   test("removeValue removes first occurrence of value", () => {
-  const ll = new LinkedList();
-  ll.append(10);
-  ll.append(20);
-  ll.append(30);
+    const ll = new LinkedList();
+    ll.append(10);
+    ll.append(20);
+    ll.append(30);
 
-  expect(ll.removeValue(20)).toBe(20);
-  expect(ll.getSize()).toBe(2);
-  expect(ll.head.next.value).toBe(30);
+    expect(ll.removeValue(20)).toBe(20);
+    expect(ll.getSize()).toBe(2);
+    expect(ll.head.next.value).toBe(30);
 
-  expect(ll.removeValue(10)).toBe(10);
-  expect(ll.getSize()).toBe(1);
-  expect(ll.head.value).toBe(30);
+    expect(ll.removeValue(10)).toBe(10);
+    expect(ll.getSize()).toBe(1);
+    expect(ll.head.value).toBe(30);
 
-  expect(ll.removeValue(100)).toBeNull();
-  expect(ll.getSize()).toBe(1);
-});
+    expect(ll.removeValue(100)).toBeNull();
+    expect(ll.getSize()).toBe(1);
+  });
+  test("search returns correct index or -1", () => {
+    const ll = new LinkedList();
+    ll.append(10);
+    ll.append(20);
+    ll.append(30);
 
+    expect(ll.search(10)).toBe(0);
+    expect(ll.search(20)).toBe(1);
+    expect(ll.search(30)).toBe(2);
+    expect(ll.search(40)).toBe(-1);
+  });
+  test("reverse reverses the linked list", () => {
+    const ll = new LinkedList();
+    ll.append(1);
+    ll.append(2);
+    ll.append(3);
+
+    ll.reverse();
+
+    expect(ll.head.value).toBe(3);
+    expect(ll.head.next.value).toBe(2);
+    expect(ll.head.next.next.value).toBe(1);
+    expect(ll.head.next.next.next).toBeNull();
+  });
 });
