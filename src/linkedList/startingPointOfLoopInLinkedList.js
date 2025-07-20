@@ -6,10 +6,9 @@ class Node {
 }
 
 class LinkedList {
-
-    constructor(){
-        this.head = null
-    }
+  constructor() {
+    this.head = null;
+  }
   findStartingPoint() {
     let slow = this.head;
     let fast = this.head;
