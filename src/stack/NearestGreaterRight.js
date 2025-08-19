@@ -9,7 +9,7 @@ function NGR(arr) {
     } else if (stack.length > 0 && stack[stack.length - 1] > arr[i]) {
       result.push(stack[stack.length - 1]);
     } else if (stack.length > 0 && stack[stack.length - 1] <= arr[i]) {
-      while (stack.length > 0 && stack[stack.length - 1] <= arr[i]) {
+      while (stack.length > 0 && stack[stack.length - 1] <= arr[i]) {//we pop small
         stack.pop();
       }
       if (stack.length === 0) {
